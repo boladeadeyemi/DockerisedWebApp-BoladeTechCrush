@@ -2,24 +2,34 @@ version: "3.8"
 
 services:
   backend:
-    build:
-      context: ./Backend
-      dockerfile: ../Dockerfile.backend
-    ports:
-      - "8080:5000"
-    volumes:
-      - ./Backend:/app
+    image: bgin86/backend:1.0.0
+    expose:
+      - "5000" # No ports mapped to host
     networks:
       - app-network
 
   frontend:
+    image: bgin86/frontend:1.0.0
     build:
       context: ./Frontend
-    ports:
-      - "3000:80"
     networks:
       - app-network
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - frontend-build:/usr/share/nginx/html
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  frontend-build:
+
 networks:
   app-network:
-    driver: bridge
