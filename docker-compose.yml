@@ -3,8 +3,9 @@ version: "3.8"
 services:
   backend:
     build:
-      context: .
-      dockerfile: Dockerfile.backend
+      context: ./Backend
+      dockerfile: Dockerfile
+    image: bgin86/backend:1.0.0
     container_name: backend
     ports:
       - "5000:5000"
@@ -13,8 +14,9 @@ services:
 
   frontend:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: bgin86/frontend:1.0.0
     container_name: frontend
     ports:
       - "80:80"
