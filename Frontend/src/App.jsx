@@ -10,9 +10,7 @@ function App() {
   useEffect(() => {
     const fetchAPI = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8080/api/groupmembers"
-        );
+        const response = await axios.get("/api/groupmembers");
         setArray(response.data.groupMembers);
       } catch (error) {
         console.error("API error:", error);
