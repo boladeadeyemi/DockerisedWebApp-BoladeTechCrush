@@ -4,29 +4,30 @@ services:
   backend:
     build:
       context: ./Backend
-      dockerfile: Dockerfile.backend
-    expose:
-      - "5000"
+    image: bgin86/backend
+    ports:
+      - "5000:5000"
     networks:
       - app-network
 
   frontend:
     build:
       context: ./Frontend
-      dockerfile: Dockerfile.frontend
+    image: bgin86/frontend
+    ports:
+      - "8080:80"
     networks:
       - app-network
 
   nginx:
-    image: nginx:latest
-    ports:
-      - "80:80" # ✅ Required: public access with no custom ports
+    image: nginx:alpine
     volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./Frontend/build:/usr/share/nginx/html:ro
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
     depends_on:
-      - backend
       - frontend
+      - backend
     networks:
       - app-network
 
