@@ -1,114 +1,146 @@
-# 👨‍💻 Group 6 Tech Crush Capstone Project
-
-This is a full-stack web application that allows users to search for group members of Group 6 using a React-based frontend and a Flask-based backend. It is fully containerized using Docker and can be deployed locally via Docker Compose.
+Absolutely, Bolade! Here's a fresh `README.md` tailored for your **Vite + Express + Docker + NGINX** project, now using `default.conf` to serve everything on port 80.
 
 ---
 
-## 🚀 Features
+```markdown
+# Group 6 Tech Crush Capstone Project
 
-- 🔎 Search for a group member by name
-- ⚡ Fast, responsive React frontend
-- 🐍 Lightweight Flask API backend
-- 🔗 Frontend communicates with backend via REST API
-- 📦 Dockerized with multi-service setup
-- 🔄 Ready for CI/CD with GitHub Actions (optional)
+This project is a **full-stack web application** built with:
+
+- **Frontend:** Vite + React
+- **Backend:** Express.js (Node.js)
+- **Containerization:** Docker & Docker Compose
+- **Web Server / Reverse Proxy:** NGINX
+- **Deployment Target:** Runs on port `80` via NGINX
 
 ---
 
-## 🖼️ Project Structure
+## 🔍 Project Overview
 
+This app allows users to search for group members by name. If the name is found in the backend data, it returns:
+
+> ✅ "Member is in Group 6"
+
+Otherwise, it returns:
+
+> ❌ "Member is not in Group 6"
+
+---
+
+## 📁 Project Structure
 ```
-my-project/
-├── Backend/
-│   ├── server.py
-├── Frontend/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-├── Dockerfile.backend
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
-```
+
+Capstone-Project/
+├── Backend/ # Express.js app with route handler
+│ ├── app.js
+│ ├── Dockerfile
+│ └── routes/
+│ └── groupmembers.js
+│
+├── Frontend/ # Vite + React frontend
+│ ├── Dockerfile
+│ ├── vite.config.js
+│ └── dist/ # Generated after build
+│
+├── default.conf # NGINX config for reverse proxy
+├── docker-compose.yml # Orchestrates frontend, backend, nginx
+└── README.md # You're here
+
+````
 
 ---
 
-## 🧪 Tech Stack
+## ⚙️ How to Run the Project
 
-- **Frontend**: React, Axios, HTML/CSS
-- **Backend**: Python, Flask, Flask-CORS
-- **Containerization**: Docker, Docker Compose
-- **DevOps**: GitHub, GitHub Actions (optional)
-
----
-
-## 🐳 Run Locally with Docker Compose
-
-### Prerequisites
-
-- Docker & Docker Compose installed
-
-### Commands
+### 1. Clone the Repository
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/group6-capstone.git
-cd group6-capstone
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+````
 
-# Build and start all services
+### 2. Build Frontend (Vite)
+
+```bash
+cd Frontend
+npm install
+npm run build
+```
+
+This creates a production-ready `dist/` folder.
+
+### 3. Start All Services with Docker Compose
+
+From the root directory:
+
+```bash
 docker-compose up --build
 ```
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000/api/groupmembers
+---
+
+## 🌐 Access the App
+
+| Component   | URL                                 |
+| ----------- | ----------------------------------- |
+| Frontend    | `http://localhost/`                 |
+| Backend API | `http://localhost/api/groupmembers` |
 
 ---
 
-## 🛠️ API Endpoint
+## 🐳 Docker Compose Services
 
-- `GET /api/groupmembers`  
-  Returns a list of group member names.
+- `frontend`: Builds and bundles the Vite app
+- `backend`: Runs Express server on port 5000
+- `nginx`: Serves frontend and proxies `/api` requests to backend
+
+---
+
+## 📝 Example API Response
+
+`GET http://localhost/api/groupmembers`
 
 ```json
 {
-  "groupMembers": ["Bolade", "Felix", "Idowu", ...]
+  "groupMembers": ["Bolade", "Tolu", "Muna", "Chika"]
 }
 ```
 
 ---
 
-## 🔍 Example Use Case
+## 📦 Technologies Used
 
-Search for a name like “Peace” using the search bar. If the name exists in Group 6, you'll get a confirmation message.
-
----
-
-## 🤝 Group Members
-
-- **Felix**
-- **Idowu**
-- **James**
-- **Agape**
-- **Oyerinde**
-- **John**
-- **Folashade**
-- **Ifeoluwa**
-- **Paul**
-- **Peter**
-- **Peace**
-- **Esther**
-- **Covenant**
-- **Hassan**
-- **Ingrid**
+- React + Vite
+- Express.js
+- Docker & Docker Compose
+- NGINX (as reverse proxy)
+- Node.js
 
 ---
 
-## 📄 License
+## ✍️ Author
 
-This project is for educational purposes only.
+**Bolade Adeyemi**
+Capstone Project - Group 6 (Tech Crush)
+Class of 2025
 
 ---
 
-## 📬 Contact
+## ✅ TODO (Optional Enhancements)
 
-For questions or suggestions, please send an email to boladeadeyemi@gmail.com
+- Add form validation
+- Deploy on Azure/AWS with HTTPS
+- Add member pictures and bios
+- Integrate MongoDB for persistent data
+
+```
+
+---
+
+Let me know if:
+- You want the README split into dev vs prod instructions
+- You're adding CI/CD (I’ll update that too)
+- You want markdown badges or GitHub Actions workflow included
+
+Happy to help polish it up for public sharing or portfolio use!
+```
