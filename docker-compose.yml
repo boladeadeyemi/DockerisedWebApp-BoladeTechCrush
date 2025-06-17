@@ -15,7 +15,7 @@ services:
       context: ./Frontend
     image: bgin86/frontend
     ports:
-      - "8080:80"
+      - "80:80"
     networks:
       - app-network
 
