@@ -8,6 +8,6 @@ app.use(express.json());
 // Routes
 app.use("/api/groupmembers", groupmembersRoute);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
