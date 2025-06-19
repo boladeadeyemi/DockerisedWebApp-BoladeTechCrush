@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:5173", // Allow requests from the React app
+  origin: "http://localhost:5173",   // Allow requests from the React app
   methods: ["GET", "POST"], // Specify allowed methods
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
