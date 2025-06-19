@@ -1,8 +1,3 @@
-Absolutely, Bolade! Here's a fresh `README.md` tailored for your **Vite + Express + Docker + NGINX** project, now using `default.conf` to serve everything on port 80.
-
----
-
-```markdown
 # Group 6 Tech Crush Capstone Project
 
 This project is a **full-stack web application** built with:
@@ -28,6 +23,7 @@ Otherwise, it returns:
 ---
 
 ## 📁 Project Structure
+
 ```
 
 Capstone-Project/
@@ -46,7 +42,7 @@ Capstone-Project/
 ├── docker-compose.yml # Orchestrates frontend, backend, nginx
 └── README.md # You're here
 
-````
+```
 
 ---
 
@@ -55,9 +51,9 @@ Capstone-Project/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/boladeadeyemi/DockerisedWebApp-BoladeTechCrush.git
 cd your-repo
-````
+```
 
 ### 2. Build Frontend (Vite)
 
@@ -102,7 +98,24 @@ docker-compose up --build
 
 ```json
 {
-  "groupMembers": ["Bolade", "Tolu", "Muna", "Chika"]
+  "groupMembers": [
+    "Felix",
+    "James",
+    "Idowu",
+    "Agape",
+    "Afeez",
+    "John",
+    "Bolade",
+    "Folasade",
+    "Ifeoluwa",
+    "Paul",
+    "Peter",
+    "Peace",
+    "Esther",
+    "Ibiyemi",
+    "Hassan",
+    "Abdulmalik"
+  ]
 }
 ```
 
@@ -126,21 +139,21 @@ Class of 2025
 
 ---
 
-## ✅ TODO (Optional Enhancements)
+## ✅ TODO LIST
 
-- Add form validation
-- Deploy on Azure/AWS with HTTPS
-- Add member pictures and bios
-- Integrate MongoDB for persistent data
+Tasks:
+
+1. Create DockerFiles for both backend and Frontend
+2. Containerize both using Docker with separate Dockerfiles.
+3. Create a `docker-compose.yml` file to run both services together.
+4. Push both images to Docker Hub using tagged versions.
+5. Creates a Linux VM and deploys the containers into it and expose for external consumption.  
+   BONUS: Implement a GitHub Actions CI/CD pipeline that:
+
+- Builds the images
+- Pushes them to Docker Hub
+- SSHs into a Linux VM and deploys the containers
 
 ```
 
----
-
-Let me know if:
-- You want the README split into dev vs prod instructions
-- You're adding CI/CD (I’ll update that too)
-- You want markdown badges or GitHub Actions workflow included
-
-Happy to help polish it up for public sharing or portfolio use!
 ```
